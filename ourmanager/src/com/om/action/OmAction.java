@@ -15,6 +15,7 @@ public class OmAction  extends ActionSupport {
 	public int getSuperManagerCount() {
 		return superManagerCount;
 	}
+	///
 	public void setSuperManagerCount(int superManagerCount) {
 		this.superManagerCount = superManagerCount;
 	}
