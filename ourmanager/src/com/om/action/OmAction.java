@@ -30,7 +30,7 @@ public class OmAction  extends ActionSupport {
 	public void setManagerCount(int managerCount) {
 		this.managerCount = managerCount;
 	}
-
+////
 
 	private int	financeManagerCount;//财务管理员数量
 	private int	managerCount;//管理员数量
