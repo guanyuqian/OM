@@ -13,7 +13,6 @@
 <head>
 
 <base href="<%=basePath%>">
-
 <!-- Basic -->
 <meta charset="UTF-8" />
 
@@ -141,6 +140,7 @@ footer {
 									</div>
 								</div>
 								<br />
+								<s:property value="#session.LoginMessage"/>
 								<div class="row">
 									<div class="col-sm-8">
 										<div

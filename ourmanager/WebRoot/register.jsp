@@ -103,8 +103,13 @@ footer {
 		<table border="0">
 
 			<tr>
+<<<<<<< HEAD
 				<td></td>
 				omname:<td><s:textfield name="om.omName"> </s:textfield></td>
+=======
+				<td></td> omname:
+				<td><s:textfield name="om.omName"></s:textfield></td>
+>>>>>>> 848c596c9b5744cc4b8b40a7b053f8e7b086fba2
 			</tr>
 			<tr>
 				<td>headcount:</td>

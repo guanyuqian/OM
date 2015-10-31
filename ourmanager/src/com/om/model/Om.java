@@ -16,6 +16,9 @@ public class Om implements java.io.Serializable {
 	private String omName;
 	private String omDes;
 	private String omLogoUrl;
+	private String omCity;
+	private String omCounty;
+	private String omProvince;
 	private String omLocation;
 	private Timestamp omCreatetime;
 	private Integer omMoney;
@@ -40,12 +43,16 @@ public class Om implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public Om(String omName, String omDes, String omLogoUrl, String omLocation,
+	public Om(String omName, String omDes, String omLogoUrl, String omCity,
+			String omCounty, String omProvince, String omLocation,
 			Timestamp omCreatetime, Integer omMoney, String omBank,
 			Integer headcount, Set users, Set logs, Set purchases, Set bills) {
 		this.omName = omName;
 		this.omDes = omDes;
 		this.omLogoUrl = omLogoUrl;
+		this.omCity = omCity;
+		this.omCounty = omCounty;
+		this.omProvince = omProvince;
 		this.omLocation = omLocation;
 		this.omCreatetime = omCreatetime;
 		this.omMoney = omMoney;
@@ -60,6 +67,9 @@ public class Om implements java.io.Serializable {
 	// Property accessors
 
 	public Om(Om om) {
+		this.omCity = om.omCity;
+		this.omCounty = om.omCounty;
+		this.omProvince = om.omProvince;
 		this.omName = om.omName;
 		this.omDes = om.omDes;
 		this.omLogoUrl = om.omLogoUrl;
@@ -104,6 +114,30 @@ public class Om implements java.io.Serializable {
 
 	public void setOmLogoUrl(String omLogoUrl) {
 		this.omLogoUrl = omLogoUrl;
+	}
+
+	public String getOmCity() {
+		return this.omCity;
+	}
+
+	public void setOmCity(String omCity) {
+		this.omCity = omCity;
+	}
+
+	public String getOmCounty() {
+		return this.omCounty;
+	}
+
+	public void setOmCounty(String omCounty) {
+		this.omCounty = omCounty;
+	}
+
+	public String getOmProvince() {
+		return this.omProvince;
+	}
+
+	public void setOmProvince(String omProvince) {
+		this.omProvince = omProvince;
 	}
 
 	public String getOmLocation() {

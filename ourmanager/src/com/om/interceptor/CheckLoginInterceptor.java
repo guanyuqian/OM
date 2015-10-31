@@ -9,11 +9,9 @@ public class CheckLoginInterceptor implements Interceptor {
 	
 	public void destroy() {
 		// TODO Auto-generated method stub
-
 	}
 	public void init() {
 		// TODO Auto-generated method stub
-
 	}
 	public String intercept(ActionInvocation arg0) throws Exception {
 		String url = "";

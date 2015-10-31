@@ -55,7 +55,11 @@ public class OmAction  extends ActionSupport {
 		this.omService = omService;
 	}
 	
-	
+	public String test() throws Exception{
+		om=new Om();
+		String asdf="asdf";
+		return SUCCESS;
+	}
 	public String buildOM() throws Exception {
 		Om newom=new Om(om);
 		if (omService.add(newom,uniPassword,superManagerCount,financeManagerCount,managerCount))
