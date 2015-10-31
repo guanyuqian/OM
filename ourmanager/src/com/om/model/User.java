@@ -41,6 +41,7 @@ public class User implements java.io.Serializable {
 	/** default constructor */
 	public User() {
 	}
+
 	/** minimal constructor */
 	public User(Om om, String userPassword, Integer userLimit,
 			Float userBalance, Boolean deleteflag, Timestamp userCreatetime) {

@@ -9,4 +9,5 @@ public interface IUserDAO {
 	public User findByUserId(Object userid);
 	public List findAll();
 	public User findById(java.lang.Integer id) ;
+	public void attachDirty(User instance) ;
 }

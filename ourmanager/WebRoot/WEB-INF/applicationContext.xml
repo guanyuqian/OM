@@ -78,4 +78,10 @@
 	<bean id="LoginAction" class="com.om.action.LoginAction">
 		<property name="loginService" ref="LoginService"></property>
 	</bean>
+	<bean id="UserInfoService" class="com.om.service.impl.UserInfoService">
+		<property name="userdao" ref="UserDAO"></property>
+	</bean>
+	<bean id="UserInfoAction" class="com.om.action.UserInfoAction">
+		<property name="userInfoService" ref="UserInfoService"></property>
+	</bean>
 </beans>
