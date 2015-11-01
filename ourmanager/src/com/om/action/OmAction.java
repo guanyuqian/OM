@@ -11,12 +11,21 @@ import com.om.service.IOmService;
 public class OmAction  extends ActionSupport {
 	IOmService omService;
 	Om om;
+<<<<<<< HEAD
 	User user;
 	public User getUser() {
 		return user;
 	}
 	public void setUser(User user) {
 		this.user = user;
+=======
+	String province;
+	public String getProvince() {
+		return province;
+	}
+	public void setProvince(String province) {
+		this.province = province;
+>>>>>>> 7e4f3ce9ab4fdba9e4900697fa10acaf09be16fb
 	}
 
 	private String uniPassword;//初始密码

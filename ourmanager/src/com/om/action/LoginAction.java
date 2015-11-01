@@ -14,7 +14,6 @@ public class LoginAction extends ActionSupport {
 	private ILoginService loginService;
 	private User user;
 
-
 	public User getUser() {
 		return user;
 	}
@@ -40,9 +39,13 @@ public class LoginAction extends ActionSupport {
 	public String loginuser() throws Exception {
 		ServletRequest request = ServletActionContext.getRequest();
 		HttpSession session = ((HttpServletRequest) request).getSession();
-		if (loginService.execute(user)) 
+		if (loginService.execute(user)) {
+
+			user = (User) session.getAttribute("user");
+			if (user.getUserName() == null || user.getUserName().equals(""))
+				return "data_ini";
 			return SUCCESS;
-		else
+		} else
 			return "login_fail";
 	}
 

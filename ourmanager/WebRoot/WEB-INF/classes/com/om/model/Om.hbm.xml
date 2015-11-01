@@ -22,13 +22,13 @@
             </column>
         </property>
         <property name="omCity" type="java.lang.String">
-            <column name="`om_ city`" length="20" />
+            <column name="`om_city`" length="20" />
         </property>
         <property name="omCounty" type="java.lang.String">
-            <column name="`om_ county`" length="20" />
+            <column name="`om_county`" length="20" />
         </property>
         <property name="omProvince" type="java.lang.String">
-            <column name="`om_ province`" length="20" />
+            <column name="`om_province`" length="20" />
         </property>
         <property name="omLocation" type="java.lang.String">
             <column name="om_location" length="45" />
