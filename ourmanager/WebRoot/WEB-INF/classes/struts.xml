@@ -26,18 +26,21 @@
 			<interceptor-ref name="defaultStack"></interceptor-ref>
 			<result name="success">view/index.jsp</result>
 		</action>
-		<action name="buildOM" class="OmAction" method="buildOM">
+		<action name="buildOM" class="OmBuildAction" method="buildOM">
 			<interceptor-ref name="defaultStack"></interceptor-ref>
 			<result name="success">login.jsp</result>
 			<result name="error">/register.jsp</result>
 		</action>
-<<<<<<< HEAD
-		<action name="Update" class="UserInfoAction" method="Update">
+
+		<action name="Update" class="UserInfoUpdateAction" method="Update">
 		<result name="success">/login.jsp</result>
-=======
-		<action name="test" class="OmAction" method="test">
+		</action>
+		<action name="test" class="OmServiceAction" method="test">
 			<result name="success" type="json"></result>
->>>>>>> 848c596c9b5744cc4b8b40a7b053f8e7b086fba2
+
+		</action>
+		<action name="updateOM" class="OmUpdateAction" method="updateOM">
+		<interceptor-ref name="defaultStack"></interceptor-ref>
 		</action>
 	</package>
 </struts>    

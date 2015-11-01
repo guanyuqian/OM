@@ -65,11 +65,11 @@
 			<ref bean="sessionFactory" />
 		</property>
 	</bean>
-	<bean id="OmService" class="com.om.service.impl.OmService">
+	<bean id="OmBuildService" class="com.om.service.impl.OmService">
 		<property name="omdao" ref="OmDAO"></property>
 		<property name="userdao" ref="UserDAO"></property>
 	</bean>
-	<bean id="OmAction" class="com.om.action.OmAction">
+	<bean id="OmBuildAction" class="com.om.action.OmAction">
 		<property name="omService" ref="OmService"></property>
 	</bean>
 	<bean id="LoginService" class="com.om.service.impl.LoginService">
@@ -78,10 +78,17 @@
 	<bean id="LoginAction" class="com.om.action.LoginAction">
 		<property name="loginService" ref="LoginService"></property>
 	</bean>
-	<bean id="UserInfoService" class="com.om.service.impl.UserInfoService">
+	<bean id="UserInfoUpdateService" class="com.om.service.impl.UserInfoService">
 		<property name="userdao" ref="UserDAO"></property>
 	</bean>
-	<bean id="UserInfoAction" class="com.om.action.UserInfoAction">
+	<bean id="UserInfoUpdateAction" class="com.om.action.UserInfoAction">
 		<property name="userInfoService" ref="UserInfoService"></property>
+	</bean>
+	<bean id="OmUpdateService" class="com.om.service.impl.OmService">
+	<property name="omdao" ref="OmDAO"></property>
+	<property name="userdao" ref="UserDAO"></property>
+	</bean>
+	<bean id="OmUpdateAction" class="com.om.action.OmAction">
+	<property name="omService" ref="OmService"></property>
 	</bean>
 </beans>

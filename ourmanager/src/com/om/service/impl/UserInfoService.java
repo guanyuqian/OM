@@ -32,7 +32,15 @@ public class UserInfoService implements IUserInfoService{
 				.getSession();
 		try{
 			User newuser=(User) session.getAttribute("user");
-			newuser.setUserPassword(user.getUserPassword());
+			newuser.setUserEmail(user.getUserEmail());
+			newuser.setUserName(user.getUserName());
+			newuser.setUserSex(user.getUserSex());
+			newuser.setUserAge(user.getUserAge());
+			newuser.setUserBirthday(user.getUserBirthday());
+			newuser.setUserMoto(user.getUserEmail());
+			newuser.setUserHomtown(user.getUserHomtown());
+			newuser.setUserLocation(user.getUserLocation());
+			newuser.setUserJob(user.getUserJob());
 			userdao.attachDirty(newuser);
 		}catch(Exception ex)
 		{

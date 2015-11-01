@@ -82,8 +82,6 @@ footer {
 
 
 
-<title>My JSP starting page</title>
-
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="cache-control" content="no-cache">
 <meta http-equiv="expires" content="0">
@@ -92,12 +90,19 @@ footer {
 <!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
+	
+	<jsp:include page="head.jsp" flush="true"></jsp:include>
+	<jsp:include page="leftJsp.jsp"></jsp:include>
 
 </head>
 
 <body>
-	This is my JSP page.
+
+	
 	<br>
+	<jsp:include page="head.jsp"></jsp:include>
+	<jsp:include page="leftJsp.jsp"></jsp:include>
+
 	<s:form action="Update" method="post">
 		<table border="0">
 
@@ -106,10 +111,6 @@ footer {
 			<tr>
 				<td>username:</td>
 				<td><s:textfield name="user.userName" value="%{#session.user.userName}"> </s:textfield></td>
-			</tr>
-			<tr>
-				<td>Dorm:</td>
-				<td><s:textfield name="user.om.omName" value="%{#session.user.om.omName}"></s:textfield></td>
 			</tr>
 			<tr>
 				<td>Email:</td>

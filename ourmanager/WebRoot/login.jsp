@@ -95,6 +95,8 @@ footer {
 
 </head>
 <body>
+
+
 	<!-- Start: Content -->
 	<div class="container-fluid content">
 		<div class="row">

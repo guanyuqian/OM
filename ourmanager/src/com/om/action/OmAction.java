@@ -5,11 +5,20 @@ import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import com.om.model.Om;
 import com.om.model.OmDAO;
+import com.om.model.User;
 import com.om.service.IOmService;
 
 public class OmAction  extends ActionSupport {
 	IOmService omService;
 	Om om;
+	User user;
+	public User getUser() {
+		return user;
+	}
+	public void setUser(User user) {
+		this.user = user;
+	}
+
 	private String uniPassword;//初始密码
 	private int	superManagerCount;//超级管理员数量
 	public int getSuperManagerCount() {
@@ -67,5 +76,15 @@ public class OmAction  extends ActionSupport {
 		else
 			return ERROR;
 	}
-
+	public String updateOM()
+	{
+		if(omService.update(user))
+		{
+			return SUCCESS;
+		}
+		else
+		{
+			return ERROR;
+		}
+	}
 }
