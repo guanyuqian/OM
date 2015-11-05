@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd"
+	xmlns:tx="http://www.springframework.org/schema/tx">
+
+
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="url"
+			value="jdbc:mysql://55f7d4e50bc29.sh.cdb.myqcloud.com:15623/omdatabase?useUnicode=true&amp;characterEncoding=utf-8">
+		</property>
+		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+		<property name="username" value="root"></property>
+		<property name="password" value="mysql@323"></property>
+	</bean>
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+		<property name="dataSource">
+			<ref bean="dataSource" />
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">
+					org.hibernate.dialect.MySQLDialect
+				</prop>
+			</props>
+		</property>
+		<property name="mappingResources">
+			<list>
+				<value>com/om/model/Log.hbm.xml</value>
+				<value>com/om/model/User.hbm.xml</value>
+				<value>com/om/model/Bill.hbm.xml</value>
+				<value>com/om/model/Purchase.hbm.xml</value>
+				<value>com/om/model/Om.hbm.xml</value>
+			</list>
+		</property>
+	</bean>
+	<bean id="transactionManager"
+		class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<tx:annotation-driven transaction-manager="transactionManager" />
+	<bean id="LogDAO" class="com.om.model.LogDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="UserDAO" class="com.om.model.UserDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="BillDAO" class="com.om.model.BillDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="PurchaseDAO" class="com.om.model.PurchaseDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="OmDAO" class="com.om.model.OmDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="OmService" class="com.om.service.impl.OmService">
+		<property name="omdao" ref="OmDAO"></property>
+		<property name="userdao" ref="UserDAO"></property>
+	</bean>
+	<bean id="OmAction" class="com.om.action.OmAction">
+		<property name="omService" ref="OmService"></property>
+	</bean>
+	<bean id="LoginService" class="com.om.service.impl.LoginService">
+		<property name="userdao" ref="UserDAO"></property>
+	</bean>
+	<bean id="LoginAction" class="com.om.action.LoginAction">
+		<property name="loginService" ref="LoginService"></property>
+	</bean>
+</beans>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Struts2Diagram version="2.0">
+  <package name="default" location="225,10" size="227,334">
+    <action name="OmAction" location="68,50" size="150,62">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="MyJsp.jsp" />
+      </result>
+      <result name="error">
+        <resourceEdge source="error" routing="0" target="index.jsp" />
+      </result>
+    </action>
+    <action name="buildOM" location="68,165" size="150,41">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="MyJsp.jsp" />
+      </result>
+    </action>
+    <action name="loginAction" location="44,259" size="150,62">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="index.jsp" />
+      </result>
+      <result name="error">
+        <resourceEdge source="error" routing="0" target="login.jsp" />
+      </result>
+    </action>
+  </package>
+  <webResource name="MyJsp.jsp" path="/MyJsp.jsp" location="10,157" size="150,55" />
+  <webResource name="index.jsp" path="/index.jsp" location="570,52" size="150,55" />
+  <webResource name="login.jsp" path="/login.jsp" location="601,368" size="150,55" />
+</Struts2Diagram>
+
