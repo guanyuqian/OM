@@ -24,14 +24,12 @@
 		
 		<action name="LoginAction" class="LoginAction" method="loginuser">
 			<interceptor-ref name="defaultStack"></interceptor-ref>
-			<result name="success">/index.jsp</result>
+			<result name="success">/WEB-INF/index.jsp</result>
 		</action>
 		<action name="buildOM" class="OmAction" method="buildOM">
 			<interceptor-ref name="defaultStack"></interceptor-ref>
-			<result name="success">/index.jsp</result>
+			<result name="success">/login.jsp</result>
 			<result name="error">/register.jsp</result>
 		</action>
-
-
 	</package>
 </struts>    
