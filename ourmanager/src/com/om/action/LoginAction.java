@@ -34,19 +34,24 @@ public class LoginAction extends ActionSupport {
 	/***
 	 * 前台传入user对象，有Userid和UserPassword
 	 * 
-	 * 账号错误 返回session.setAttribute("LoginMessage", "NoFoundId"); 
-	 * 密码错误
+	 * 账号错误 返回session.setAttribute("LoginMessage", "NoFoundId"); 密码错误
 	 * 返回session.setAttribute("LoginMessage", "PassWordError"); 正确重定向index.jsp
 	 */
 	public String loginuser() throws Exception {
 		ServletRequest request = ServletActionContext.getRequest();
 		HttpSession session = ((HttpServletRequest) request).getSession();
-		if (loginService.execute(user))
-		{
+		if (loginService.execute(user)) {
 			session.getAttribute("user");
 			return SUCCESS;
-		}
-		else		
+		} else
 			return "login_fail";
+	}
+
+	public String logout() throws Exception {
+		ServletRequest request = ServletActionContext.getRequest();
+		HttpSession session = ((HttpServletRequest) request).getSession();
+		session.removeAttribute("user");
+		session.removeAttribute("LoginMessage");
+		return "login_fail";
 	}
 }

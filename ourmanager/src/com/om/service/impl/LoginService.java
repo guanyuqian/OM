@@ -25,17 +25,19 @@ public class LoginService implements ILoginService {
 
 	public boolean execute(User user) {
 		User result_user = null;
+		ServletRequest request = ServletActionContext.getRequest();
+		HttpSession session = ((HttpServletRequest) request).getSession();
 		try {
 			if (user != null) {
-				ServletRequest request = ServletActionContext.getRequest();
-				HttpSession session = ((HttpServletRequest) request)
-						.getSession();
+		
+			
 				result_user = (User) userdao.findById(user.getUserid());
 				if (result_user == null)
 					session.setAttribute("LoginMessage", "NoFoundId");
 				else if (result_user.getUserPassword().equals(
 						user.getUserPassword())) {
 					session.removeAttribute("LoginMessage");
+					session.removeAttribute("user");
 					session.setAttribute("user", result_user);
 					return true;
 				} else
@@ -44,6 +46,9 @@ public class LoginService implements ILoginService {
 		} catch (Exception ex) {
 			System.err.println("Login Exception");
 			ex.printStackTrace();
+		}finally{
+			System.out.println("user:"+session.getAttribute("user"));
+			System.out.println("LoginMessage:"+session.getAttribute("LoginMessage"));
 		}
 		return false;
 

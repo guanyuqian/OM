@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
 <struts>
-  <constant name="struts.ui.theme" value="simple" />
-    <constant name="struts.ui.templateDir" value="template" />
-    <constant name="struts.ui.templateSuffix" value="ftl" />
+	<constant name="struts.ui.theme" value="simple" />
+	<constant name="struts.ui.templateDir" value="template" />
+	<constant name="struts.ui.templateSuffix" value="ftl" />
 
-	<package name="default" namespace="/" extends="struts-default">
+	<package name="default" namespace="/" extends="json-default">
 
 		<interceptors>
 			<interceptor name="checkLogin"
@@ -21,15 +21,18 @@
 		<global-results>
 			<result name="login_fail">/login.jsp</result>
 		</global-results>
-		
+
 		<action name="LoginAction" class="LoginAction" method="loginuser">
 			<interceptor-ref name="defaultStack"></interceptor-ref>
-			<result name="success">/WEB-INF/index.jsp</result>
+			<result name="success">view/index.jsp</result>
 		</action>
 		<action name="buildOM" class="OmAction" method="buildOM">
 			<interceptor-ref name="defaultStack"></interceptor-ref>
-			<result name="success">/login.jsp</result>
+			<result name="success">login.jsp</result>
 			<result name="error">/register.jsp</result>
+		</action>
+		<action name="test" class="OmAction" method="test">
+			<result name="success" type="json"></result>
 		</action>
 	</package>
 </struts>    
