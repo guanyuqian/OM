@@ -21,8 +21,17 @@
                 <comment>logo地址</comment>
             </column>
         </property>
+        <property name="omCity" type="java.lang.String">
+            <column name="`om_ city`" length="20" />
+        </property>
+        <property name="omCounty" type="java.lang.String">
+            <column name="`om_ county`" length="20" />
+        </property>
+        <property name="omProvince" type="java.lang.String">
+            <column name="`om_ province`" length="20" />
+        </property>
         <property name="omLocation" type="java.lang.String">
-            <column name="om_location" length="100" />
+            <column name="om_location" length="45" />
         </property>
         <property name="omCreatetime" type="java.sql.Timestamp">
             <column name="om_createtime" length="19" not-null="true" />

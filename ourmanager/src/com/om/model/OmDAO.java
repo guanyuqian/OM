@@ -1,5 +1,4 @@
 package com.om.model;
-
 import java.sql.Timestamp;
 import java.util.List;
 import java.util.Set;
@@ -28,13 +27,15 @@ import com.om.dao.IOmDAO;
  * @author MyEclipse Persistence Tools
  */
 @Transactional
-public class OmDAO implements IOmDAO
-{
+public class OmDAO implements IOmDAO{
 	private static final Logger log = LoggerFactory.getLogger(OmDAO.class);
 	// property constants
 	public static final String OM_NAME = "omName";
 	public static final String OM_DES = "omDes";
 	public static final String OM_LOGO_URL = "omLogoUrl";
+	public static final String OM_CITY = "omCity";
+	public static final String OM_COUNTY = "omCounty";
+	public static final String OM_PROVINCE = "omProvince";
 	public static final String OM_LOCATION = "omLocation";
 	public static final String OM_MONEY = "omMoney";
 	public static final String OM_BANK = "omBank";
@@ -47,8 +48,7 @@ public class OmDAO implements IOmDAO
 	}
 
 	private Session getCurrentSession() {
-		Session result=sessionFactory.getCurrentSession();
-		return result;
+		return sessionFactory.getCurrentSession();
 	}
 
 	protected void initDao() {
@@ -108,8 +108,9 @@ public class OmDAO implements IOmDAO
 				+ ", value: " + value);
 		try {
 			String queryString = "from Om as model where model." + propertyName
-					+ "= '"+value+"'";
+					+ "= ?";
 			Query queryObject = getCurrentSession().createQuery(queryString);
+			queryObject.setParameter(0, value);
 			return queryObject.list();
 		} catch (RuntimeException re) {
 			log.error("find by property name failed", re);
@@ -127,6 +128,18 @@ public class OmDAO implements IOmDAO
 
 	public List findByOmLogoUrl(Object omLogoUrl) {
 		return findByProperty(OM_LOGO_URL, omLogoUrl);
+	}
+
+	public List findByOmCity(Object omCity) {
+		return findByProperty(OM_CITY, omCity);
+	}
+
+	public List findByOmCounty(Object omCounty) {
+		return findByProperty(OM_COUNTY, omCounty);
+	}
+
+	public List findByOmProvince(Object omProvince) {
+		return findByProperty(OM_PROVINCE, omProvince);
 	}
 
 	public List findByOmLocation(Object omLocation) {
