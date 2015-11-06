@@ -26,6 +26,9 @@
 
 <body>
 	This is my JSP page.index
-	<br>
+	<br> hello
+	<s:iterator value="list">
+		<s:property></s:property>
+	</s:iterator>
 </body>
 </html>

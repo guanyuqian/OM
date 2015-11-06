@@ -1,7 +1,5 @@
 package com.om.service.impl;
 
-import java.util.List;
-
 import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -29,11 +27,9 @@ public class LoginService implements ILoginService {
 		HttpSession session = ((HttpServletRequest) request).getSession();
 		try {
 			if (user != null) {
-		
-			
 				result_user = (User) userdao.findById(user.getUserid());
 				if (result_user == null)
-					session.setAttribute("LoginMessage", "NoFoundId");
+					session.setAttribute("LoginMessage", "Id Not Found");
 				else if (result_user.getUserPassword().equals(
 						user.getUserPassword())) {
 					session.removeAttribute("LoginMessage");
@@ -41,15 +37,12 @@ public class LoginService implements ILoginService {
 					session.setAttribute("user", result_user);
 					return true;
 				} else
-					session.setAttribute("LoginMessage", "PassWordError");
+					session.setAttribute("LoginMessage", "PassWord Error");
 			}
 		} catch (Exception ex) {
 			System.err.println("Login Exception");
 			ex.printStackTrace();
-		}finally{
-			System.out.println("user:"+session.getAttribute("user"));
-			System.out.println("LoginMessage:"+session.getAttribute("LoginMessage"));
-		}
+		} 
 		return false;
 
 	}

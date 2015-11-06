@@ -6,7 +6,6 @@ import javax.servlet.http.HttpSession;
 
 import org.apache.struts2.ServletActionContext;
 
-import com.om.dao.IUserDAO;
 import com.om.model.User;
 import com.om.service.ILoginService;
 import com.opensymphony.xwork2.ActionSupport;
@@ -14,6 +13,7 @@ import com.opensymphony.xwork2.ActionSupport;
 public class LoginAction extends ActionSupport {
 	private ILoginService loginService;
 	private User user;
+
 
 	public User getUser() {
 		return user;
@@ -40,10 +40,9 @@ public class LoginAction extends ActionSupport {
 	public String loginuser() throws Exception {
 		ServletRequest request = ServletActionContext.getRequest();
 		HttpSession session = ((HttpServletRequest) request).getSession();
-		if (loginService.execute(user)) {
-			session.getAttribute("user");
+		if (loginService.execute(user)) 
 			return SUCCESS;
-		} else
+		else
 			return "login_fail";
 	}
 
