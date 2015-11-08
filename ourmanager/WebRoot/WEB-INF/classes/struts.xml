@@ -16,10 +16,9 @@
 			</interceptor-stack>
 		</interceptors>
 		<default-interceptor-ref name="defaultInterceptorss"></default-interceptor-ref>
-
-
 		<global-results>
 			<result name="login_fail">/login.jsp</result>
+			<result name="data_ini">/profile.jsp</result>
 		</global-results>
 
 		<action name="LoginAction" class="LoginAction" method="loginuser">

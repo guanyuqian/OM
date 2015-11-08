@@ -143,7 +143,7 @@ footer {
 		});
 
 		$("#register").click(function() {
-				$("#s2").val("");
+			$("#s2").val("");
 			if (ok1 == false) {
 				alert("名字不能为空");
 				return false;
@@ -179,204 +179,205 @@ footer {
 
 <body onload="setup();">
 	<!-- Start: Content -->
-	<div class="container-fluid content">
-		<div class="row">
-			<!-- Main Page -->
-			<div class="body-register">
-				<div class="center-register">
-					<a href="#" class="logo pull-left hidden-xs"> <img
-						src="assets/img/logo.png" height="45" alt="NADHIF Admin" />
-					</a>
+	<div style="min-height: 675px;" class="main ">
+		<div class="container-fluid content">
+			<div class="row">
+				<!-- Main Page -->
+				<div class="body-register">
+					<div class="center-register">
+						<a href="#" class="logo pull-left hidden-xs"> <img
+							src="assets/img/logo.png" height="45" alt="NADHIF Admin" />
+						</a>
 
-					<div class="panel panel-register">
-						<div class="panel-title-register text-right">
-							<h2 class="title text-uppercase">
-								<i class="fa fa-user"></i> 注册
-							</h2>
-						</div>
+						<div class="panel panel-register">
+							<div class="panel-title-register text-right">
+								<h2 class="title text-uppercase">
+									<i class="fa fa-user"></i> 注册
+								</h2>
+							</div>
 
-						<div class="panel-body">
-							<s:form method="post" id="formcheck" action="buildOM">
+							<div class="panel-body">
+								<s:form method="post" id="formcheck" action="buildOM">
 
-								<div class="form-group">
-									<div class="row ">
-										<div id="tip" class="col-sm-6">
+									<div class="form-group">
+										<div class="row ">
+											<div id="tip" class="col-sm-6">
 
-											<label>集体名：</label>
-											<s:textfield name="om.omName" id="omName"
-												cssClass=" form-control"></s:textfield>
-										</div>
-										<div class="col-sm-6">
-											<label>集体账户：</label>
-											<s:textfield name="om.omBank" placeholder="支付宝账户" id="bank"
-												cssClass="form-control "></s:textfield>
+												<label>集体名：</label>
+												<s:textfield name="om.omName" id="omName"
+													cssClass=" form-control"></s:textfield>
+											</div>
+											<div class="col-sm-6">
+												<label>集体账户：</label>
+												<s:textfield name="om.omBank" placeholder="支付宝账户" id="bank"
+													cssClass="form-control "></s:textfield>
+											</div>
 										</div>
 									</div>
-								</div>
 
-								<div class="form-group">
+									<div class="form-group">
+										<div class="row">
+											<div class="col-sm-6">
+												<label>密码：</label>
+												<s:password name="uniPassword" id="password1"
+													cssClass="form-control"></s:password>
+											</div>
+											<div class="col-sm-6">
+												<label>确认密码：</label>
+												<s:password name="uniPassword" id="password2"
+													cssClass="form-control "></s:password>
+											</div>
+										</div>
+									</div>
+
+
+									<div class="form-group">
+										<div class="col-md-3">
+											<h5>所属地区:</h5>
+										</div>
+										<div class="col-md-3">
+											<select class="select form-control" name="province" id="s1">
+												<option>请选择省</option>
+											</select>
+										</div>
+										<div class="col-md-3">
+											<select class="select form-control" name="om.omCity" id="s2">
+												<option>请选择市</option>
+											</select>
+										</div>
+										<div class="col-md-3">
+											<select class="z form-control" name="town" id="s3"
+												onchange="getTown()">
+												<option>请选择区县</option>
+											</select>
+										</div>
+
+									</div>
+
+
+									<br />
+									<br />
+									<br />
+
+									<div class="form-group">
+										<div class="row">
+											<div class="col-sm-6">
+												<label>集体规模：</label>
+												<s:textfield name="om.headcount" placeholder="如：50" id="num"
+													cssClass="form-control"></s:textfield>
+											</div>
+											<div class="col-sm-6">
+												<label>超级管理员人数：</label>
+												<s:textfield name="superManagerCount" id="num1" value="1"
+													cssClass="form-control "></s:textfield>
+											</div>
+										</div>
+									</div>
+
+									<div class="form-group">
+										<div class="row">
+											<div class="col-sm-6">
+												<label>账户管理员人数：</label>
+												<s:textfield name="financeManagerCount"
+													cssClass="form-control"></s:textfield>
+											</div>
+											<div class="col-sm-6">
+												<label>普通管理员人数：</label>
+												<s:textfield name="managerCount" cssClass="form-control "></s:textfield>
+											</div>
+										</div>
+									</div>
+									<div class="form-group">
+										<label>集体描述：</label>
+										<s:textarea name="om.omDes" placeholder="可以留下你们的介绍、格言哦"
+											cssClass="form-control" cols="40" rows="5"></s:textarea>
+									</div>
 									<div class="row">
-										<div class="col-sm-6">
-											<label>密码：</label>
-											<s:password name="uniPassword" id="password1"
-												cssClass="form-control"></s:password>
+										<div class="col-sm-8">
+											<div class="checkbox-custom checkbox-default">
+												<input id="AgreeTerms" name="agreeterms" type="checkbox" />
+												<label for="AgreeTerms">I agree with <a href="#"><small>terms
+															of use</small></a></label>
+											</div>
 										</div>
-										<div class="col-sm-6">
-											<label>确认密码：</label>
-											<s:password name="uniPassword" id="password2"
-												cssClass="form-control "></s:password>
-										</div>
-									</div>
-								</div>
-
-
-								<div class="form-group">
-									<div class="col-md-3">
-										<h5>所属地区:</h5>
-									</div>
-									<div class="col-md-3">
-										<select class="select form-control" name="province" id="s1">
-											<option>请选择省</option>
-										</select>
-									</div>
-									<div class="col-md-3">
-										<select class="select form-control" name="om.omCity" id="s2">
-											<option>请选择市</option>
-										</select>
-									</div>
-									<div class="col-md-3">
-										<select class="z form-control" name="town" id="s3"
-											onchange="getTown()">
-											<option>请选择区县</option>
-										</select>
-									</div>
-
-								</div>
-
-
-								<br />
-								<br />
-								<br />
-
-								<div class="form-group">
-									<div class="row">
-										<div class="col-sm-6">
-											<label>集体规模：</label>
-											<s:textfield name="om.headcount" placeholder="如：50" id="num"
-												cssClass="form-control"></s:textfield>
-										</div>
-										<div class="col-sm-6">
-											<label>超级管理员人数：</label>
-											<s:textfield name="superManagerCount" id="num1" value="1"
-												cssClass="form-control "></s:textfield>
+										<div class="col-sm-4 text-right">
+											<button type="submit" id="register"
+												class="btn btn-primary hidden-xs bk-margin-top-10">Register</button>
+											<button href="index.html" type="submit"
+												class="btn btn-primary btn-block btn-lg visible-xs bk-margin-top-10">Register</button>
 										</div>
 									</div>
-								</div>
 
-								<div class="form-group">
-									<div class="row">
-										<div class="col-sm-6">
-											<label>账户管理员人数：</label>
-											<s:textfield name="financeManagerCount"
-												cssClass="form-control"></s:textfield>
-										</div>
-										<div class="col-sm-6">
-											<label>普通管理员人数：</label>
-											<s:textfield name="managerCount" cssClass="form-control "></s:textfield>
-										</div>
+									<div class="text-with-hr">
+										<span>or use your another account</span>
 									</div>
-								</div>
-								<div class="form-group">
-									<label>集体描述：</label>
-									<s:textarea name="om.omDes" placeholder="可以留下你们的介绍、格言哦"
-										cssClass="form-control" cols="40" rows="5"></s:textarea>
-								</div>
-								<div class="row">
-									<div class="col-sm-8">
-										<div class="checkbox-custom checkbox-default">
-											<input id="AgreeTerms" name="agreeterms" type="checkbox" />
-											<label for="AgreeTerms">I agree with <a href="#"><small>terms
-														of use</small></a></label>
-										</div>
+									<br />
+									<div class="bk-margin-bottom-10 bk-margin-top-10 text-center">
+										<a href="#" class="fa fa-facebook facebook-bg"></a> <a
+											href="#" class="fa fa-twitter twitter-bg"></a> <a href="#"
+											class="fa fa-linkedin linkedin-bg"></a>
 									</div>
-									<div class="col-sm-4 text-right">
-										<button type="submit" id="register"
-											class="btn btn-primary hidden-xs bk-margin-top-10">Register</button>
-										<button href="index.html" type="submit"
-											class="btn btn-primary btn-block btn-lg visible-xs bk-margin-top-10">Register</button>
-									</div>
-								</div>
-
-								<div class="text-with-hr">
-									<span>or use your another account</span>
-								</div>
-								<br />
-								<div class="bk-margin-bottom-10 bk-margin-top-10 text-center">
-									<a href="#" class="fa fa-facebook facebook-bg"></a> <a href="#"
-										class="fa fa-twitter twitter-bg"></a> <a href="#"
-										class="fa fa-linkedin linkedin-bg"></a>
-								</div>
-								<br />
-								<p class="text-center">
-									Already have an account? <a href="page-login.html"><small>Login!</small></a>
-							</s:form>
+									<br />
+									<p class="text-center">
+										Already have an account? <a href="page-login.html"><small>Login!</small></a>
+								</s:form>
+							</div>
 						</div>
 					</div>
 				</div>
-			</div>
-			<!-- End Main Page -->
+				<!-- End Main Page -->
 
-			<!-- Usage -->
-			<div id="usage-blank">
-				<ul>
-					<li>
-						<div class="title">Memory</div>
-						<div class="bar">
-							<div class="progress progress-md  progress-striped active">
-								<div class="progress-bar progress-bar-success"
-									role="progressbar" aria-valuenow="50" aria-valuemin="0"
-									aria-valuemax="100" style="width: 50%"></div>
+				<!-- Usage -->
+				<div id="usage-blank">
+					<ul>
+						<li>
+							<div class="title">Memory</div>
+							<div class="bar">
+								<div class="progress progress-md  progress-striped active">
+									<div class="progress-bar progress-bar-success"
+										role="progressbar" aria-valuenow="50" aria-valuemin="0"
+										aria-valuemax="100" style="width: 50%"></div>
+								</div>
 							</div>
-						</div>
-						<div class="desc">4GB of 8GB</div>
-					</li>
-					<li>
-						<div class="title">HDD</div>
-						<div class="bar">
-							<div class="progress progress-md  progress-striped active">
-								<div class="progress-bar progress-bar-primary"
-									role="progressbar" aria-valuenow="40" aria-valuemin="0"
-									aria-valuemax="100" style="width: 40%"></div>
+							<div class="desc">4GB of 8GB</div>
+						</li>
+						<li>
+							<div class="title">HDD</div>
+							<div class="bar">
+								<div class="progress progress-md  progress-striped active">
+									<div class="progress-bar progress-bar-primary"
+										role="progressbar" aria-valuenow="40" aria-valuemin="0"
+										aria-valuemax="100" style="width: 40%"></div>
+								</div>
 							</div>
-						</div>
-						<div class="desc">250GB of 1TB</div>
-					</li>
-					<li>
-						<div class="title">SSD</div>
-						<div class="bar">
-							<div class="progress progress-md  progress-striped active">
-								<div class="progress-bar progress-bar-warning"
-									role="progressbar" aria-valuenow="70" aria-valuemin="0"
-									aria-valuemax="100" style="width: 70%"></div>
+							<div class="desc">250GB of 1TB</div>
+						</li>
+						<li>
+							<div class="title">SSD</div>
+							<div class="bar">
+								<div class="progress progress-md  progress-striped active">
+									<div class="progress-bar progress-bar-warning"
+										role="progressbar" aria-valuenow="70" aria-valuemin="0"
+										aria-valuemax="100" style="width: 70%"></div>
+								</div>
 							</div>
-						</div>
-						<div class="desc">700GB of 1TB</div>
-					</li>
-					<li>
-						<div class="title">Bandwidth</div>
-						<div class="bar">
-							<div class="progress progress-md  progress-striped active">
-								<div class="progress-bar progress-bar-danger" role="progressbar"
-									aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"
-									style="width: 90%"></div>
+							<div class="desc">700GB of 1TB</div>
+						</li>
+						<li>
+							<div class="title">Bandwidth</div>
+							<div class="bar">
+								<div class="progress progress-md  progress-striped active">
+									<div class="progress-bar progress-bar-danger"
+										role="progressbar" aria-valuenow="90" aria-valuemin="0"
+										aria-valuemax="100" style="width: 90%"></div>
+								</div>
 							</div>
-						</div>
-						<div class="desc">90TB of 100TB</div>
-					</li>
-				</ul>
+							<div class="desc">90TB of 100TB</div>
+						</li>
+					</ul>
+				</div>
+				<!-- End Usage -->
 			</div>
-			<!-- End Usage -->
-
 		</div>
 	</div>
 	<!--/container-->
