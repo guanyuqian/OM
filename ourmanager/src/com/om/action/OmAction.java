@@ -10,6 +10,14 @@ import com.om.service.IOmService;
 public class OmAction  extends ActionSupport {
 	IOmService omService;
 	Om om;
+	String province;
+	public String getProvince() {
+		return province;
+	}
+	public void setProvince(String province) {
+		this.province = province;
+	}
+
 	private String uniPassword;//初始密码
 	private int	superManagerCount;//超级管理员数量
 	public int getSuperManagerCount() {

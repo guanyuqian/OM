@@ -93,35 +93,34 @@ footer {
 		var ok3 = false;
 		var ok4 = false;
 		var ok5 = false;
-		
+
 		// 验证用户名
 		$("#register").click(function() {
 			var name = $("#omName").val();
-			if (name == null || name == "");
-			else{
-				ok1=true;
+			if (name == null || name == "")
+				;
+			else {
+				ok1 = true;
 			}
-							
-			
+
 		});
 
 		//验证账单
 		$("#register").click(function() {
 			var rag = /[0-9]+/;
 			var w = $("#bank").val();
-			if(w=="" || rag.test(w)){
-				ok2 = true;	
+			if (w == "" || rag.test(w)) {
+				ok2 = true;
 			}
 		});
 
-		
 		//验证密码
 		$("#register").click(function() {
 			var reg = /[a-zA-Z0-9_]/;
 			var v = $("#password1").val();
-			if(v.length>=6 && reg.test(v)){
-				ok3 = true;			
-			} 
+			if (v.length >= 6 && reg.test(v)) {
+				ok3 = true;
+			}
 		});
 
 		//验证确认密码
@@ -129,58 +128,51 @@ footer {
 
 			var pass1 = $("#password1").val();
 			var pass2 = $("#password2").val();
-			if (pass1 == pass2){
+			if (pass1 == pass2) {
 				ok4 = true;
 			}
 		});
-		
+
 		//集体人数
 		$("#register").click(function() {
 			var rbg = /[0-9]+/;
 			var e = $("#num").val();
 			if (rbg.test(e)) {
-				ok5 = true;			
-			} 
+				ok5 = true;
+			}
 		});
-		
-		
-	
-		
-	$("#register").click(function() {
-		    if(ok1==false){
-		    	alert("名字不能为空");
+
+		$("#register").click(function() {
+				$("#s2").val("");
+			if (ok1 == false) {
+				alert("名字不能为空");
 				return false;
-		    }
-		    else{  		
-		    	if(ok2==false){
-				    alert("账单只能含有数字");
+			} else {
+				if (ok2 == false) {
+					alert("账单只能含有数字");
 					return false;
-				    }
-				    else{
-				    	if(ok3==false){				    		
-						    alert("密码不能少于六位只能含有字母、数字、下划线");
+				} else {
+					if (ok3 == false) {
+						alert("密码不能少于六位只能含有字母、数字、下划线");
+						return false;
+					} else {
+						if (ok4 == false) {
+							alert("请再次确认密码");
 							return false;
-						    }
-						    else{
-						    	if(ok4==false){					    		
-								    alert("请再次确认密码");
-									return false;
-								    }
-								    else{
-								    	if(ok5==false){				    		
-								    		alert("请输入集体人数");
-											return false;
-										    }
-										    else{
-										    	$("formcheck").submit();
-										    		
-										    	}
-										    }
-								    	}
-								    }
-						    	}
-						    });
-	
+						} else {
+							if (ok5 == false) {
+								alert("请输入集体人数");
+								return false;
+							} else {
+								$("formcheck").submit();
+
+							}
+						}
+					}
+				}
+			}
+		});
+
 	});
 </script>
 
@@ -204,7 +196,7 @@ footer {
 						</div>
 
 						<div class="panel-body">
-							<s:form method="post" id="formcheck" >
+							<s:form method="post" id="formcheck" action="buildOM">
 
 								<div class="form-group">
 									<div class="row ">
@@ -248,7 +240,7 @@ footer {
 										</select>
 									</div>
 									<div class="col-md-3">
-										<select class="select form-control" name="city" id="s2">
+										<select class="select form-control" name="om.omCity" id="s2">
 											<option>请选择市</option>
 										</select>
 									</div>
