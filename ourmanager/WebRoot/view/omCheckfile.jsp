@@ -1,5 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-<%@ taglib prefix="s" uri="/struts-tags"%>
+<%@taglib prefix="s" uri="/struts-tags"%>
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://"
@@ -7,11 +7,13 @@
 			+ path + "/";
 %>
 
+
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<base href="<%=basePath%>">
 
+
+<base href="<%=basePath%>">
 
 <!-- Mobile Metas -->
 <meta name="viewport"
@@ -83,57 +85,103 @@ footer {
 
 
 
-<title>My JSP 'register.jsp' starting page</title>
-
+<title>My JSP starting page</title>
+<script src="assets/js/jquery-1.7.1.js"></script>
+<script src="jquery.js" type="text/javascript"></script>
+<script src="jquery.inputmask.js" type="text/javascript"></script>
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="cache-control" content="no-cache">
 <meta http-equiv="expires" content="0">
 <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 <meta http-equiv="description" content="This is my page">
-<!--
-	<link rel="stylesheet" type="text/css" href="styles.css">
-	-->
 
 </head>
 
 <body>
-	This is my JSP page.
-	<br>
-	<s:form action="buildOM" method="post">
-		<table border="0">
+	<jsp:include page="home.jsp"></jsp:include>
+	<s:form id="form" action="Update" method="post">
+ <div class="row">
+   <div class="main " style="min-height: 767px;">
+   <div class="page-header">
+   <div class="pull-right">
+<h2>个人档案</h2>
+</div>
+   </div>
+    <div class="row">
+     <div class="col-md-6">
+     <div class="panel" style="width: 870px; padding-left: 100px; border-left-width: 0px; margin-left: 130px; padding-top: 50px;">
+       
+<div class="panel-body" style="padding-bottom: 10px; padding-right: 15px; width: 600px; padding-left: 0px; border-left-width: 10px; height: 620px;">
+<form class="form-horizontal " enctype="multipart/form-data" method="post" action="">
+						<div class="form-group">
+							<label class="col-md-3 control-label">集体名</label>
+							<div class="col-md-9">
+							<s:property  value="%{#session.user.om.omName}"/> 
+							<br>
+						
+							</div>
+						</div>
+					   <br>
+					       	<br>
+					 
+					      <div class="form-group">
+							<label class="col-md-3 control-label">集体描述</label>
+							<div class="col-md-9">
+							<s:property value="%{#session.user.om.omDes}"/> 
+							<br>
+							</div>
+						</div>
+					   <br>
+					       	<br>
+					      <div class="form-group">
+							<label class="col-md-3 control-label">集体地址</label>
+							<div class="col-md-9">
+							<s:property  value="%{#session.user.om.omLocation}"/> 
+							<br>
+							</div>
+						</div>
+					   <br>
+					       	<br>
+						<div class="form-group">
+							<label class="col-md-3 control-label">集体余额</label>
+							<div class="col-md-9">
+								<s:property value="%{#session.user.om.omMoney}"/> 
+								<br>
+							</div>
+						</div>
+						<br>
+						    	<br>
+						<div class="form-group">
+							<label class="col-md-3 control-label" >资金账户</label>
+							<div class="col-md-9">
+							<s:property value="%{#session.user.om.omBank}"/> 
+                        	<br>
+                        </div>
+                        </div>
+                        	<br>
+                        	<br>
+						<div class="form-group">
+							<label class="col-md-3 control-label" >集体人数</label>
+							<div class="col-md-9">
+					      <s:property  value="%{#session.user.om.headcount}"/> 
+								
+								<br>
+							</div>
+						</div>
+							<br>
+										
+				
+					
+				</form>
+       </div>
+      </div>
+     </div>
+  </div>
+   </div>
+  </div>
 
-			<tr>
-<<<<<<< HEAD
-				<td></td>
-				omname:<td><s:textfield name="om.omName"> </s:textfield></td>
-=======
-				<td></td> omname:
-				<td><s:textfield name="om.omName"></s:textfield></td>
->>>>>>> 848c596c9b5744cc4b8b40a7b053f8e7b086fba2
-			</tr>
-			<tr>
-				<td>headcount:</td>
-				<td><s:textfield name="om.headcount"></s:textfield></td>
-			</tr>
-			<tr>
-				<td>uniPassword:</td>
-				<td><s:password name="uniPassword"></s:password></td>
-			<tr>
-				<td>superManagerCount:</td>
-				<td><s:textfield name="superManagerCount"></s:textfield></td>
-			</tr>
-			<tr>
-				<td>financeManagerCount:</td>
-				<td><s:textfield name="financeManagerCount"></s:textfield></td>
-			</tr>
-			<tr>
-				<td>managerCount:</td>
-				<td><s:textfield name="managerCount"></s:textfield></td>
-			</tr>
-			<tr>
-				<td><s:submit></s:submit></td>
-			</tr>
-		</table>
-	</s:form>
-</body>
+
+</s:form>	
+ </body>
 </html>
+					

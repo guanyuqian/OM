@@ -38,7 +38,7 @@ public class UserInfoService implements IUserInfoService{
 			newuser.setUserAge(user.getUserAge());
 			newuser.setUserBirthday(user.getUserBirthday());
 			newuser.setUserMoto(user.getUserEmail());
-			newuser.setUserHomtown(user.getUserHomtown());
+			newuser.setUserHometown(user.getUserHometown());
 			newuser.setUserLocation(user.getUserLocation());
 			newuser.setUserJob(user.getUserJob());
 			userdao.attachDirty(newuser);

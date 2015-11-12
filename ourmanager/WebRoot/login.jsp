@@ -75,7 +75,7 @@ footer {
 
 <!-- Head Libs -->
 <script src="assets/plugins/modernizr/js/modernizr.js"></script>
-
+<script src="assets/js/jquery-1.7.1.js"></script>
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 <!--[if lt IE 9]>
@@ -92,11 +92,50 @@ footer {
 
 <link rel="stylesheet" type="text/css" href="css/jkxyflower.css">
 
+<script type="text/javascript">
+$(document).ready(function() {
+		var ok1 = false;
+		var ok2 = 0;
+	
+
+		// 验证用户名
+		$("#login").click(function() {
+			var name = $("#username").val();
+			if (name == null || name == "")
+				;
+			else {
+				ok1 = true;
+			}
+
+		});
+
+	
+
+		//验证密码
+		$("#login").click(function() {
+			var v = $("#userpassword1").val();
+			var reg = /[a-zA-Z0-9_]/;
+			if (v.length<1) {
+				ok2 = 0;
+			}		
+			else if(v.length >= 6 && v.length <= 20 && reg.test(v)) {
+				ok3 =1;
+			}
+		});
+	
+		$("#login").click(function() {
+			if (ok1 == false) {
+				alert("账号不能为空");
+				return false;
+			} 
+		});
+
+
+	});
+</script>
 
 </head>
 <body>
-
-
 	<!-- Start: Content -->
 	<div class="container-fluid content">
 		<div class="row">
@@ -110,18 +149,18 @@ footer {
 					<div class="panel panel-login">
 						<div class="panel-title-login text-right">
 							<h2 class="title">
-								<i class="fa fa-user"></i> Login
+								<i class="fa fa-user"></i> 登录
 							</h2>
 						</div>
 						<div class="panel-body">
-							<s:form action="LoginAction" method="post">
+							<s:form action="LoginAction" id="formcheck" method="post">
 								<div class="form-group">
-									<label>Username</label>
+									<label>用户名</label>
 
 
 									<div class="input-group input-group-icon">
 
-										<s:textfield name="user.userid"
+										<s:textfield id="username" name="user.userid"
 											cssClass="form-control bk-noradius"></s:textfield>
 										<span class="input-group-addon"> <span class="icon">
 												<i class="fa fa-user"></i>
@@ -131,9 +170,9 @@ footer {
 								</div>
 
 								<div class="form-group">
-									<label>Password</label>
+									<label>密码</label>
 									<div class="input-group input-group-icon">
-										<s:password name="user.userPassword"
+										<s:password name="user.userPassword" id="userpassword1"
 											cssClass="form-control bk-noradius"></s:password>
 										<span class="input-group-addon"> <span class="icon">
 												<i class="fa fa-lock"></i>
@@ -142,93 +181,38 @@ footer {
 									</div>
 								</div>
 								<br />
-								<s:property value="#session.LoginMessage"/>
+								<s:property value="#session.LoginMessage" />
 								<div class="row">
 									<div class="col-sm-8">
 										<div
 											class="checkbox-custom checkbox-default bk-margin-bottom-10">
 											<input id="RememberMe" name="rememberme" type="checkbox" />
-											<label for="RememberMe">Remember Me</label>
+											<label for="RememberMe">记住我</label>
 										</div>
 									</div>
 									<div class="col-sm-4 text-right">
+										<button href="index.html" type="submit" id="login"
+											class="btn btn-primary hidden-xs">登录</button>
 										<button href="index.html" type="submit"
-											class="btn btn-primary hidden-xs">Login</button>
-										<button href="index.html" type="submit"
-											class="btn btn-primary btn-block btn-lg visible-xs bk-margin-top-10">Login</button>
+											class="btn btn-primary btn-block btn-lg visible-xs bk-margin-top-10">登录</button>
 									</div>
 								</div>
 								<br />
 								<div class="text-with-hr">
 									<span>or</span>
 								</div>
-								<br />
-								<div class="bk-margin-bottom-10 bk-margin-top-10 text-center">
-									<a href="#" class="fa fa-facebook facebook-bg"></a> <a href="#"
-										class="fa fa-twitter twitter-bg"></a> <a href="#"
-										class="fa fa-linkedin linkedin-bg"></a>
-								</div>
-								<br />
+						
 								<p class="text-center">
-									Don't have an account yet? <a href="page-register.html"><small>Register!</small></a>
+									还没有账号吗? <a href="my_register.jsp"><big>注册!</big></a>
 								</p>
 							</s:form>
 						</div>
 					</div>
 				</div>
 			</div>
-			<!-- End Main Page -->
 
-			<!-- Usage -->
-			<div id="usage-blank">
-				<ul>
-					<li>
-						<div class="title">Memory</div>
-						<div class="bar">
-							<div class="progress progress-md  progress-striped active">
-								<div class="progress-bar progress-bar-success"
-									role="progressbar" aria-valuenow="50" aria-valuemin="0"
-									aria-valuemax="100" style="width: 50%"></div>
-							</div>
-						</div>
-						<div class="desc">4GB of 8GB</div>
-					</li>
-					<li>
-						<div class="title">HDD</div>
-						<div class="bar">
-							<div class="progress progress-md  progress-striped active">
-								<div class="progress-bar progress-bar-primary"
-									role="progressbar" aria-valuenow="40" aria-valuemin="0"
-									aria-valuemax="100" style="width: 40%"></div>
-							</div>
-						</div>
-						<div class="desc">250GB of 1TB</div>
-					</li>
-					<li>
-						<div class="title">SSD</div>
-						<div class="bar">
-							<div class="progress progress-md  progress-striped active">
-								<div class="progress-bar progress-bar-warning"
-									role="progressbar" aria-valuenow="70" aria-valuemin="0"
-									aria-valuemax="100" style="width: 70%"></div>
-							</div>
-						</div>
-						<div class="desc">700GB of 1TB</div>
-					</li>
-					<li>
-						<div class="title">Bandwidth</div>
-						<div class="bar">
-							<div class="progress progress-md  progress-striped active">
-								<div class="progress-bar progress-bar-danger" role="progressbar"
-									aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"
-									style="width: 90%"></div>
-							</div>
-						</div>
-						<div class="desc">90TB of 100TB</div>
-					</li>
-				</ul>
-			</div>
-			<!-- End Usage -->
+
+
 
 		</div>
 	</div>

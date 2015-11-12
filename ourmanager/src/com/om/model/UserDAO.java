@@ -4,6 +4,7 @@ import java.sql.Timestamp;
 import java.util.Date;
 import java.util.List;
 import java.util.Set;
+
 import org.hibernate.LockOptions;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -15,6 +16,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.om.dao.IUserDAO;
+
 /**
  * A data access object (DAO) providing persistence and search support for User
  * entities. Transaction control of the save(), update() and delete() operations
@@ -30,7 +32,6 @@ import com.om.dao.IUserDAO;
 public class UserDAO  implements IUserDAO{
 	private static final Logger log = LoggerFactory.getLogger(UserDAO.class);
 	// property constants
-	public static final String USER_ID = "userPassword";
 	public static final String USER_NAME = "userName";
 	public static final String USER_PASSWORD = "userPassword";
 	public static final String USER_LIMIT = "userLimit";
@@ -47,6 +48,9 @@ public class UserDAO  implements IUserDAO{
 	public static final String USER_PROVINCE = "userProvince";
 	public static final String USER_COUNTY = "userCounty";
 	public static final String USER_CITY = "userCity";
+	public static final String USER_HOME_PROVINCE = "userHomeProvince";
+	public static final String USER_HOME_COUNTY = "userHomeCounty";
+	public static final String USER_HOME_CITY = "userHomeCity";
 
 	private SessionFactory sessionFactory;
 
@@ -125,10 +129,7 @@ public class UserDAO  implements IUserDAO{
 			throw re;
 		}
 	}
-	public User findByUserId(Object userid) {
-		return (User)findByProperty(USER_ID, userid).get(0);
-	}
-	
+
 	public List findByUserName(Object userName) {
 		return findByProperty(USER_NAME, userName);
 	}
@@ -191,6 +192,18 @@ public class UserDAO  implements IUserDAO{
 
 	public List findByUserCity(Object userCity) {
 		return findByProperty(USER_CITY, userCity);
+	}
+
+	public List findByUserHomeProvince(Object userHomeProvince) {
+		return findByProperty(USER_HOME_PROVINCE, userHomeProvince);
+	}
+
+	public List findByUserHomeCounty(Object userHomeCounty) {
+		return findByProperty(USER_HOME_COUNTY, userHomeCounty);
+	}
+
+	public List findByUserHomeCity(Object userHomeCity) {
+		return findByProperty(USER_HOME_CITY, userHomeCity);
 	}
 
 	public List findAll() {

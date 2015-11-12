@@ -5,8 +5,6 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
-import com.om.model.User.Limit;
-
 /**
  * User entity. @author MyEclipse Persistence Tools
  */
@@ -23,7 +21,7 @@ public class User implements java.io.Serializable {
 	private Integer userLimit;
 	private Float userBalance;
 	private String userEmail;
-	private Boolean userSex;
+	private String userSex;
 	private String userMoto;
 	private String userHometown;
 	private String userPhotoUrl;
@@ -36,6 +34,9 @@ public class User implements java.io.Serializable {
 	private String userProvince;
 	private String userCounty;
 	private String userCity;
+	private String userHomeProvince;
+	private String userHomeCounty;
+	private String userHomeCity;
 	private Set purchases = new HashSet(0);
 	private Set logs = new HashSet(0);
 
@@ -58,12 +59,13 @@ public class User implements java.io.Serializable {
 
 	/** full constructor */
 	public User(Om om, String userName, String userPassword, Integer userLimit,
-			Float userBalance, String userEmail, Boolean userSex,
+			Float userBalance, String userEmail, String userSex,
 			String userMoto, String userHometown, String userPhotoUrl,
 			String userLocation, String userJob, Date userBirthday,
 			Short userAge, Boolean deleteflag, Timestamp userCreatetime,
 			String userProvince, String userCounty, String userCity,
-			Set purchases, Set logs) {
+			String userHomeProvince, String userHomeCounty,
+			String userHomeCity, Set purchases, Set logs) {
 		this.om = om;
 		this.userName = userName;
 		this.userPassword = userPassword;
@@ -83,6 +85,9 @@ public class User implements java.io.Serializable {
 		this.userProvince = userProvince;
 		this.userCounty = userCounty;
 		this.userCity = userCity;
+		this.userHomeProvince = userHomeProvince;
+		this.userHomeCounty = userHomeCounty;
+		this.userHomeCity = userHomeCity;
 		this.purchases = purchases;
 		this.logs = logs;
 	}
@@ -145,11 +150,11 @@ public class User implements java.io.Serializable {
 		this.userEmail = userEmail;
 	}
 
-	public Boolean getUserSex() {
+	public String getUserSex() {
 		return this.userSex;
 	}
 
-	public void setUserSex(Boolean userSex) {
+	public void setUserSex(String userSex) {
 		this.userSex = userSex;
 	}
 
@@ -247,6 +252,30 @@ public class User implements java.io.Serializable {
 
 	public void setUserCity(String userCity) {
 		this.userCity = userCity;
+	}
+
+	public String getUserHomeProvince() {
+		return this.userHomeProvince;
+	}
+
+	public void setUserHomeProvince(String userHomeProvince) {
+		this.userHomeProvince = userHomeProvince;
+	}
+
+	public String getUserHomeCounty() {
+		return this.userHomeCounty;
+	}
+
+	public void setUserHomeCounty(String userHomeCounty) {
+		this.userHomeCounty = userHomeCounty;
+	}
+
+	public String getUserHomeCity() {
+		return this.userHomeCity;
+	}
+
+	public void setUserHomeCity(String userHomeCity) {
+		this.userHomeCity = userHomeCity;
 	}
 
 	public Set getPurchases() {
