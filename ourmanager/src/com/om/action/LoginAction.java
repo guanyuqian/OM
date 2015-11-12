@@ -54,6 +54,7 @@ public class LoginAction extends ActionSupport {
 		HttpSession session = ((HttpServletRequest) request).getSession();
 		session.removeAttribute("user");
 		session.removeAttribute("LoginMessage");
+		session.removeAttribute("om");
 		return "login_fail";
 	}
 }

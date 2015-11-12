@@ -8,5 +8,6 @@ import com.om.model.User;
 public interface IOmDAO {
 	public void save(Om transientInstance);
 	public List findByOmName(Object omName) ;
+	public Om findById(java.lang.Integer id);
 	public void attachDirty(Om instance) ;
 }

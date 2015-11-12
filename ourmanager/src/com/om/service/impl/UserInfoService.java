@@ -12,7 +12,16 @@ import com.om.service.IUserInfoService;
 
 
 public class UserInfoService implements IUserInfoService{
-	
+	private User user;
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+
 	private IUserDAO userdao;
 	
 	

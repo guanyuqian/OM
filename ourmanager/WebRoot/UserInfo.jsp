@@ -91,9 +91,6 @@ footer {
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
 	
-	<jsp:include page="head.jsp" flush="true"></jsp:include>
-	<jsp:include page="leftJsp.jsp"></jsp:include>
-
 </head>
 
 <body>
@@ -102,9 +99,9 @@ footer {
 	<br>
 	<jsp:include page="head.jsp"></jsp:include>
 	<jsp:include page="leftJsp.jsp"></jsp:include>
-
-	<s:form action="Update" method="post">
-		<table border="0">
+<div align="center">
+	<s:form action="UpdateUser" method="post">
+		<br><br><br><br><br><br><table border="0">
 
 
 	
@@ -150,5 +147,6 @@ footer {
 			</tr>
 		</table>
 	</s:form>
+	</div>
 </body>
 </html>

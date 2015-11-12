@@ -1,4 +1,6 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+
+
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <%
 	String path = request.getContextPath();
@@ -107,26 +109,25 @@ footer {
 						</div>
 
 						<div class="panel-body">
-							<s:form method="post" id="Update" >
+							<s:form action="updateOM" method="post">
 
 								<div class="form-group">
 									<div class="row ">
 										<div id="tip" class="col-sm-6">
 
 											<label>集体名：</label>
-											<s:textfield name="user.om.omName" id="omName"
-												cssClass=" form-control" value="%{#session.user.om.omName}"></s:textfield>
+											<s:textfield name="om.omName" id="omName"
+												cssClass=" form-control" value="%{#session.om.omName}"></s:textfield>
 										</div>
+
 										<div class="col-sm-6">
 											<label>集体账户：</label>
-											<s:textfield name="user.om.omBank" placeholder="支付宝账户" id="bank"
-												cssClass="form-control "></s:textfield>
+											<s:textfield name="om.omBank" placeholder="支付宝账户" id="bank"
+												cssClass="form-control " value="%{#session.om.omBank}"></s:textfield>
 										</div>
 									</div>
 								</div>
 
-									</div>
-								</div>
 
 
 								<div class="form-group">
@@ -161,22 +162,22 @@ footer {
 									<div class="row">
 										<div class="col-sm-6">
 											<label>集体规模：</label>
-											<s:textfield name="user.om.headcount" placeholder="如：50" id="num"
-												cssClass="form-control"></s:textfield>
+											<s:textfield name="om.headcount" placeholder="如：50" id="num"
+												cssClass="form-control" value="%{#session.om.headcount}"></s:textfield>
 										</div>
-										
+
 									</div>
 								</div>
 
-								
+
 								<div class="form-group">
 									<label>集体描述：</label>
-									<s:textarea name="user.om.omDes" placeholder="可以留下你们的介绍、格言哦"
-										cssClass="form-control" cols="40" rows="5"></s:textarea>
+									<s:textarea name="om.omDes" placeholder="可以留下你们的介绍、格言哦"
+										cssClass="form-control" cols="40" rows="5" value="%{#session.om.omDes}"></s:textarea>
 								</div>
-							
 
-								
+
+
 								<br />
 								<div class="bk-margin-bottom-10 bk-margin-top-10 text-center">
 									<a href="#" class="fa fa-facebook facebook-bg"></a> <a href="#"
@@ -186,121 +187,132 @@ footer {
 								<br />
 								<p class="text-center">
 									Already have an account? <a href="page-login.html"><small>Login!</small></a>
+								</p>
+								<s:submit></s:submit>
 							</s:form>
 						</div>
 					</div>
 				</div>
-			</div>
-			<!-- End Main Page -->
+				<!-- End Main Page -->
 
-			<!-- Usage -->
-			<div id="usage-blank">
-				<ul>
-					<li>
-						<div class="title">Memory</div>
-						<div class="bar">
-							<div class="progress progress-md  progress-striped active">
-								<div class="progress-bar progress-bar-success"
-									role="progressbar" aria-valuenow="50" aria-valuemin="0"
-									aria-valuemax="100" style="width: 50%"></div>
+				<!-- Usage -->
+				<div id="usage-blank">
+					<ul>
+						<li>
+							<div class="title">Memory</div>
+							<div class="bar">
+								<div class="progress progress-md  progress-striped active">
+									<div class="progress-bar progress-bar-success"
+										role="progressbar" aria-valuenow="50" aria-valuemin="0"
+										aria-valuemax="100" style="width: 50%"></div>
+								</div>
 							</div>
-						</div>
-						<div class="desc">4GB of 8GB</div>
-					</li>
-					<li>
-						<div class="title">HDD</div>
-						<div class="bar">
-							<div class="progress progress-md  progress-striped active">
-								<div class="progress-bar progress-bar-primary"
-									role="progressbar" aria-valuenow="40" aria-valuemin="0"
-									aria-valuemax="100" style="width: 40%"></div>
+							<div class="desc">4GB of 8GB</div>
+						</li>
+						<li>
+							<div class="title">HDD</div>
+							<div class="bar">
+								<div class="progress progress-md  progress-striped active">
+									<div class="progress-bar progress-bar-primary"
+										role="progressbar" aria-valuenow="40" aria-valuemin="0"
+										aria-valuemax="100" style="width: 40%"></div>
+								</div>
 							</div>
-						</div>
-						<div class="desc">250GB of 1TB</div>
-					</li>
-					<li>
-						<div class="title">SSD</div>
-						<div class="bar">
-							<div class="progress progress-md  progress-striped active">
-								<div class="progress-bar progress-bar-warning"
-									role="progressbar" aria-valuenow="70" aria-valuemin="0"
-									aria-valuemax="100" style="width: 70%"></div>
+							<div class="desc">250GB of 1TB</div>
+						</li>
+						<li>
+							<div class="title">SSD</div>
+							<div class="bar">
+								<div class="progress progress-md  progress-striped active">
+									<div class="progress-bar progress-bar-warning"
+										role="progressbar" aria-valuenow="70" aria-valuemin="0"
+										aria-valuemax="100" style="width: 70%"></div>
+								</div>
 							</div>
-						</div>
-						<div class="desc">700GB of 1TB</div>
-					</li>
-					<li>
-						<div class="title">Bandwidth</div>
-						<div class="bar">
-							<div class="progress progress-md  progress-striped active">
-								<div class="progress-bar progress-bar-danger" role="progressbar"
-									aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"
-									style="width: 90%"></div>
+							<div class="desc">700GB of 1TB</div>
+						</li>
+						<li>
+							<div class="title">Bandwidth</div>
+							<div class="bar">
+								<div class="progress progress-md  progress-striped active">
+									<div class="progress-bar progress-bar-danger"
+										role="progressbar" aria-valuenow="90" aria-valuemin="0"
+										aria-valuemax="100" style="width: 90%"></div>
+								</div>
 							</div>
-						</div>
-						<div class="desc">90TB of 100TB</div>
-					</li>
-				</ul>
-			</div>
-			<!-- End Usage -->
+							<div class="desc">90TB of 100TB</div>
+						</li>
+					</ul>
+				</div>
+				<!-- End Usage -->
 
+			</div>
 		</div>
-	</div>
-	<!--/container-->
+		<!--/container-->
 
 
-	<!-- start: JavaScript-->
+		<!-- start: JavaScript-->
 
-	<!-- Vendor JS-->
-	<script src="assets/vendor/js/jquery.min.js"></script>
-	<script src="assets/vendor/js/jquery-2.1.1.min.js"></script>
-	<script src="assets/vendor/js/jquery-migrate-1.2.1.min.js"></script>
-	<script src="assets/vendor/bootstrap/js/bootstrap.min.js"></script>
-	<script src="assets/vendor/skycons/js/skycons.js"></script>
+		<!-- Vendor JS-->
+		<script src="assets/vendor/js/jquery.min.js"></script>
+		<script src="assets/vendor/js/jquery-2.1.1.min.js"></script>
+		<script src="assets/vendor/js/jquery-migrate-1.2.1.min.js"></script>
+		<script src="assets/vendor/bootstrap/js/bootstrap.min.js"></script>
+		<script src="assets/vendor/skycons/js/skycons.js"></script>
 
-	<!-- Plugins JS-->
+		<!-- Plugins JS-->
 
-	<!-- Theme JS -->
-	<script src="assets/js/jquery.mmenu.min.js"></script>
-	<script src="assets/js/core.min.js"></script>
-	<script src="assets/js/area.js"></script>
-	<!-- Pages JS -->
-	<script src="assets/js/pages/page-register.js"></script>
+		<!-- Theme JS -->
+		<script src="assets/js/jquery.mmenu.min.js"></script>
+		<script src="assets/js/core.min.js"></script>
+		<script src="assets/js/area.js"></script>
+		<!-- Pages JS -->
+		<script src="assets/js/pages/page-register.js"></script>
 
-	<!-- end: JavaScript-->
-	<script type="text/javascript">
-		//这个函数是必须的，因为在area.js里每次更改地址时会调用此函数  
-		function promptinfo() {
-			var address = document.getElementById('address');
-			var s1 = document.getElementById('s1');
-			var s2 = document.getElementById('s2');
-			var town1 = document.getElementById('town1');
-			if (s1.value != "请选择省" && s2.value == '请选择市') {//若只选择了第一项，则地址就为某某省  
-				address.value = s1.value;
+		<!-- end: JavaScript-->
+		<script type="text/javascript">
+			//这个函数是必须的，因为在area.js里每次更改地址时会调用此函数 
+			$(document).ready(function($) {
+			
+				alert(address.value);
+								});
+			function promptinfo() {
+
+				var address = document.getElementById('address');
+				var s1 = document.getElementById('s1');
+				var s2 = document.getElementById('s2');
+				
+				var current_Province = '<%=session.getAttribute("om.omProvince")%>';
+				var current_Shi='<%=session.getAttribute("om.omCity")%>'
+				address.value = current_Provinec.value + "|" + current_Shi.value;
+				alert('address.value');
+				var town1 = document.getElementById('town1');
+				if (s1.value != "请选择省" && s2.value == '请选择市') {//若只选择了第一项，则地址就为某某省  
+					address.value = s1.value;
+				}
+				if (s1.value != "请选择省" && s2.value != '请选择市') {//若只选择了前两项省和市，则地址就只显示"省|市"  
+					address.value = s1.value + "|" + s2.value;
+				}
+				if (s1.value == "请选择省") {//若什么都不选，则隐藏域地址为空串  
+					address.value = "";
+				}
 			}
-			if (s1.value != "请选择省" && s2.value != '请选择市') {//若只选择了前两项省和市，则地址就只显示"省|市"  
-				address.value = s1.value + "|" + s2.value;
-			}
-			if (s1.value == "请选择省") {//若什么都不选，则隐藏域地址为空串  
-				address.value = "";
-			}
-		}
-		//获取区县的值（若不写这个触发函数，一直获取不到第三项区县的值，一直是默认值“请选择区县”）  
-		function getTown() {
-			var address = document.getElementById('address');
-			var s1 = document.getElementById('s1').value
-			var s2 = document.getElementById('s2').value;
-			var s3 = document.getElementById('s3').value;
-			var town1 = document.getElementById('town1').value;
-			town1 = s3;
-			if (town1 == "请选择区县") {
-				address.value = s1 + "|" + s2;
-			} else {
-				address.value = s1 + "|" + s2 + "|" + town1;
-			}
+			//获取区县的值（若不写这个触发函数，一直获取不到第三项区县的值，一直是默认值“请选择区县”）  
+			function getTown() {
+				var address = document.getElementById('address');
+				var s1 = document.getElementById('s1').value
+				var s2 = document.getElementById('s2').value;
+				var s3 = document.getElementById('s3').value;
+				var town1 = document.getElementById('town1').value;
+				town1 = s3;
+				if (town1 == "请选择区县") {
+					address.value = s1 + "|" + s2;
+				} else {
+					address.value = s1 + "|" + s2 + "|" + town1;
+				}
 
-		}
-	</script>
+			}
+		</script>
 </body>
 
 </html>

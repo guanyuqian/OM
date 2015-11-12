@@ -32,16 +32,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
   </body>
 </html>
-=======
-<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
-<%
-	String path = request.getContextPath();
-	String basePath = request.getScheme() + "://"
-			+ request.getServerName() + ":" + request.getServerPort()
-			+ path + "/";
-%>
 
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
 <base href="<%=basePath%>">
@@ -416,4 +407,3 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 </body>
 </html>
->>>>>>> 7e4f3ce9ab4fdba9e4900697fa10acaf09be16fb

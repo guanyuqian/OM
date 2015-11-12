@@ -9,5 +9,5 @@ public interface IOmService {
 	public boolean add(Om newom, String uniPassword, int superManagerCount,
 			int financeManagerCount, int managerCount);
 	
-	public boolean update(User user);
+	public boolean update(Om om);
 }

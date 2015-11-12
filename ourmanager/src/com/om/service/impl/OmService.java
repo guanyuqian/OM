@@ -94,22 +94,23 @@ public class OmService implements IOmService {
 	}
 
 	@Override
-	public boolean update(User user) {
+	public boolean update(Om om) {
 		ServletRequest request = ServletActionContext.getRequest();
 		HttpSession session = ((HttpServletRequest) request)
 				.getSession();
 		try{
-			User newuser =(User) session.getAttribute("user");
-			newuser.getOm().setOmName(om.getOmName());
-			newuser.getOm().setOmLogoUrl(om.getOmLogoUrl());
-			newuser.getOm().setHeadcount(om.getHeadcount());
-			newuser.getOm().setOmDes(om.getOmDes());
-			newuser.getOm().setOmLocation(om.getOmLocation());
-			newuser.getOm().setOmBank(om.getOmBank());
-			newuser.getOm().setOmCity(om.getOmCity());
-			newuser.getOm().setOmCounty(om.getOmCounty());
-			newuser.getOm().setOmProvince(om.getOmProvince());
-			omdao.attachDirty(om);
+			Om newom =(Om) session.getAttribute("om");
+			newom.setOmid(om.getOmid());
+			newom.setOmName(om.getOmName());
+			newom.setOmLogoUrl(om.getOmLogoUrl());
+			newom.setHeadcount(om.getHeadcount());
+			newom.setOmDes(om.getOmDes());
+			newom.setOmLocation(om.getOmLocation());
+			newom.setOmBank(om.getOmBank());
+			newom.setOmCity(om.getOmCity());
+			newom.setOmCounty(om.getOmCounty());
+			newom.setOmProvince(om.getOmProvince());
+			omdao.attachDirty(newom);
 				
 		}catch(Exception ex)
 		{
