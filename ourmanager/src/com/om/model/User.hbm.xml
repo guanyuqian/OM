@@ -35,8 +35,8 @@
         <property name="userMoto" type="java.lang.String">
             <column name="user_moto" length="200" />
         </property>
-        <property name="userHomtown" type="java.lang.String">
-            <column name="user_homtown" length="100" />
+        <property name="userHometown" type="java.lang.String">
+            <column name="user_hometown" length="100" />
         </property>
         <property name="userPhotoUrl" type="java.lang.String">
             <column name="user_photo_url" length="200" />
@@ -58,6 +58,15 @@
         </property>
         <property name="userCreatetime" type="java.sql.Timestamp">
             <column name="user_createtime" length="19" not-null="true" />
+        </property>
+        <property name="userProvince" type="java.lang.String">
+            <column name="user_province" length="20" />
+        </property>
+        <property name="userCounty" type="java.lang.String">
+            <column name="user_county" length="20" />
+        </property>
+        <property name="userCity" type="java.lang.String">
+            <column name="user_city" length="20" />
         </property>
         <set name="purchases" inverse="true">
             <key>

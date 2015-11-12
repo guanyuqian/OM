@@ -25,7 +25,7 @@ public class User implements java.io.Serializable {
 	private String userEmail;
 	private Boolean userSex;
 	private String userMoto;
-	private String userHomtown;
+	private String userHometown;
 	private String userPhotoUrl;
 	private String userLocation;
 	private String userJob;
@@ -33,6 +33,9 @@ public class User implements java.io.Serializable {
 	private Short userAge;
 	private Boolean deleteflag;
 	private Timestamp userCreatetime;
+	private String userProvince;
+	private String userCounty;
+	private String userCity;
 	private Set purchases = new HashSet(0);
 	private Set logs = new HashSet(0);
 
@@ -56,9 +59,10 @@ public class User implements java.io.Serializable {
 	/** full constructor */
 	public User(Om om, String userName, String userPassword, Integer userLimit,
 			Float userBalance, String userEmail, Boolean userSex,
-			String userMoto, String userHomtown, String userPhotoUrl,
+			String userMoto, String userHometown, String userPhotoUrl,
 			String userLocation, String userJob, Date userBirthday,
 			Short userAge, Boolean deleteflag, Timestamp userCreatetime,
+			String userProvince, String userCounty, String userCity,
 			Set purchases, Set logs) {
 		this.om = om;
 		this.userName = userName;
@@ -68,7 +72,7 @@ public class User implements java.io.Serializable {
 		this.userEmail = userEmail;
 		this.userSex = userSex;
 		this.userMoto = userMoto;
-		this.userHomtown = userHomtown;
+		this.userHometown = userHometown;
 		this.userPhotoUrl = userPhotoUrl;
 		this.userLocation = userLocation;
 		this.userJob = userJob;
@@ -76,6 +80,9 @@ public class User implements java.io.Serializable {
 		this.userAge = userAge;
 		this.deleteflag = deleteflag;
 		this.userCreatetime = userCreatetime;
+		this.userProvince = userProvince;
+		this.userCounty = userCounty;
+		this.userCity = userCity;
 		this.purchases = purchases;
 		this.logs = logs;
 	}
@@ -154,12 +161,12 @@ public class User implements java.io.Serializable {
 		this.userMoto = userMoto;
 	}
 
-	public String getUserHomtown() {
-		return this.userHomtown;
+	public String getUserHometown() {
+		return this.userHometown;
 	}
 
-	public void setUserHomtown(String userHomtown) {
-		this.userHomtown = userHomtown;
+	public void setUserHometown(String userHometown) {
+		this.userHometown = userHometown;
 	}
 
 	public String getUserPhotoUrl() {
@@ -216,6 +223,30 @@ public class User implements java.io.Serializable {
 
 	public void setUserCreatetime(Timestamp userCreatetime) {
 		this.userCreatetime = userCreatetime;
+	}
+
+	public String getUserProvince() {
+		return this.userProvince;
+	}
+
+	public void setUserProvince(String userProvince) {
+		this.userProvince = userProvince;
+	}
+
+	public String getUserCounty() {
+		return this.userCounty;
+	}
+
+	public void setUserCounty(String userCounty) {
+		this.userCounty = userCounty;
+	}
+
+	public String getUserCity() {
+		return this.userCity;
+	}
+
+	public void setUserCity(String userCity) {
+		this.userCity = userCity;
 	}
 
 	public Set getPurchases() {
